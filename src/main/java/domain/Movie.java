@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Movie implements Content {
+public class Movie implements Content,Comparable<Movie> {
 
     private String title;
     private String urlImagem;
@@ -43,5 +43,10 @@ public class Movie implements Content {
     @Override
     public Integer year() {
         return this.year;
+    }
+
+    @Override
+    public int compareTo(Movie outro) {
+        return this.rating().compareTo(outro.rating());
     }
 }

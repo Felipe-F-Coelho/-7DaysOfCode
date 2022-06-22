@@ -1,11 +1,14 @@
 
 import contract.Content;
+import domain.Movie;
 import repository.ImdbTop250MoviesAPIClient;
 import repository.MarvelTop50ComicsAPIClient;
 import service.HTMLGenerator;
 import service.ImdbMovieJsonParser;
 import service.MarvelComicsJsonParser;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ConsumerAPIApplication{
@@ -20,6 +23,7 @@ public class ConsumerAPIApplication{
         /*      Parseamento do Json para extrair somente o necessário e instancioando os objetos      */
 
         List<? extends Content> list = new ImdbMovieJsonParser(json).getParse();
+        Collections.sort((List<Movie>) list, Comparator.reverseOrder());
 
         /*      Gerando HTML para WEB      */
 

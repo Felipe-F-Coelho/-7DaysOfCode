@@ -3,15 +3,15 @@
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-P
- src/main/java/domain/Comics.java,3\b\3bd05df68ca1eb263b13458adae9f05a219cd4ac
-S
-#src/main/java/contract/Content.java,6\9\69854900ce44293f4257b8e7f6f5db4c9e9c3e35
 U
 %src/main/java/contract/JsonParse.java,b\8\b85cfac6ab46771942d69337bcac33f7c4459d0a
-O
-src/main/java/domain/Movie.java,7\0\708d12a5b1441dbf8a48721e3f5b0db194619a13
-R
-"MarvelComics.7DaysCode.com.br.html,8\6\865e3f449640dcbf813a8249cb3a2168fc76a564
-V
-&IMDBTop250Movies.7DaysCode.com.br.html,3\d\3d3e708a0766d949d929260336a2af1326e9c587
+X
+(src/main/java/service/HTMLGenerator.java,d\4\d4da0e084abd9cd213008b23d8f02449c713f1a2
+U
+%src/main/java/contract/APIClient.java,0\b\0b95dd6e65aafb85ec59fe99043496685fb332b4
+h
+8src/main/java/repository/MarvelTop50ComicsAPIClient.java,0\f\0f7b2ff7109b032b38d422eba67fc8253ac62748
+g
+7src/main/java/repository/ImdbTop250MoviesAPIClient.java,a\a\aa4917ca69608dda3caf3bc454817148e9a8feb0
+T
+$src/main/java/contract/TypeEnum.java,9\e\9e451f495b36758cabc2ca62fcac0df4c72722d7

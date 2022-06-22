@@ -18,7 +18,7 @@ import javax.persistence.Id;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comics implements Content {
+public class Comics implements Content,Comparable<Comics> {
 
     private String title;
     private String urlImagem;
@@ -45,5 +45,10 @@ public class Comics implements Content {
     @Override
     public Integer year() {
         return this.year;
+    }
+
+    @Override
+    public int compareTo(Comics outro) {
+        return this.rating().compareTo(outro.rating());
     }
 }

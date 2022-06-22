@@ -37,8 +37,8 @@ public class ImdbMovieJsonParser implements JsonParse {
                     .urlImagem(jsonObject.get("image").toString())
                     .year(Integer.parseInt(jsonObject.get("year").toString()))
                     .build());
-        }
 
+        }
     }
 
     /**

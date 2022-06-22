@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -45,6 +46,8 @@ public class MarvelComicsJsonParser implements JsonParse {
                     .urlImagem(imagem)
                     .year(Integer.parseInt(dates.get("date").toString().substring(0,4)))
                     .build());
+
+            Collections.sort(comicsList);
         }
     }
 
