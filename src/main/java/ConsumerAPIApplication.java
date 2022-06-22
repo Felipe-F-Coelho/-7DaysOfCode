@@ -1,27 +1,42 @@
 
-import repository.IMDBTop250MoviesRepository;
-import domain.Movies;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import contract.Content;
+import repository.ImdbTop250MoviesAPIClient;
+import repository.MarvelTop50ComicsAPIClient;
 import service.HTMLGenerator;
-import service.MovieOrganizer;
+import service.ImdbMovieJsonParser;
+import service.MarvelComicsJsonParser;
 
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ConsumerAPIApplication {
+public class ConsumerAPIApplication{
     public static void main(String[] args) throws Exception {
 
-        JSONArray jsonArrayTop250 = new IMDBTop250MoviesRepository().get();
+        /*  ======  Processamento da API IMDB TOP 250 Movies ======  */
 
-        List<Movies> listMovie = new MovieOrganizer().get(jsonArrayTop250);
+        /*      Solicitação via API dos Top 250 filmes      */
 
-        HTMLGenerator htmlGenerator = new HTMLGenerator("IMDBTop250Movies.7DaysCode.com.br.html");
+        String json = new ImdbTop250MoviesAPIClient().getBody();
 
-        htmlGenerator.generate(listMovie);
+        /*      Parseamento do Json para extrair somente o necessário e instancioando os objetos      */
 
-        htmlGenerator.close();
+        List<? extends Content> list = new ImdbMovieJsonParser(json).getParse();
+
+        /*      Gerando HTML para WEB      */
+
+        HTMLGenerator htmlGeneratorIMDB = new HTMLGenerator("IMDBTop250Movies.7DaysCode.com.br.html");
+        htmlGeneratorIMDB.generate(list);
+        htmlGeneratorIMDB.close();
+
+
+        /*  ======  Processamento da API Marvel 50 Comics ======  */
+
+        String jsonMarvel = new MarvelTop50ComicsAPIClient().getBody();
+
+        List<? extends Content> listMarvel = new MarvelComicsJsonParser(jsonMarvel).getParse();
+
+        HTMLGenerator htmlGeneratorMarvel = new HTMLGenerator("MarvelComics.7DaysCode.com.br.html");
+        htmlGeneratorMarvel.generate(listMarvel);
+        htmlGeneratorMarvel.close();
+
     }
 }

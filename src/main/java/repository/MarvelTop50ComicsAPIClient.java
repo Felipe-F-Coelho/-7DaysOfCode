@@ -9,18 +9,23 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.util.Scanner;
 
-public class MarvelTop50Comics implements APIClient {
-
+/**
+ * @author Felipe Coelho
+ * Classe Repository
+ * Classe para efetuar chamada na API-Marvel e preparar o Json.
+ */
+public class MarvelTop50ComicsAPIClient implements APIClient {
 
     private final String privateKey;
     private final String publicKey;
 
-    public MarvelTop50Comics() {
+    /**
+     * @author Felipe Coelho
+     * Metodo construtor para iniciar a chamada a API.
+     */
+    public MarvelTop50ComicsAPIClient() {
         Scanner s = new Scanner(System.in);
         System.out.println("Digite a Chave Privada: ");
         this.privateKey = s.next();
@@ -28,18 +33,24 @@ public class MarvelTop50Comics implements APIClient {
         this.publicKey = s.next();
     }
 
+    /**
+     * @author Felipe Coelho
+     * @return String do response da API
+     * Metodo get para formatar o request e efetuar a chamada da API.
+     */
     @Override
     public String getBody() throws Exception {
 
-        String ts = new Timestamp(System.currentTimeMillis()).toString();
-        String md5Hash = ts + privateKey + publicKey;
+        String ts = String.valueOf(System.currentTimeMillis() / 1000L);
+        String md5Hash = getMd5Hash(ts+privateKey+publicKey);
+        String html = "https://gateway.marvel.com/v1/public/comics?format=comic&startYear=2019&limit=50&ts=%s&apikey=%s&hash=%s".formatted(ts,publicKey,md5Hash);
 
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://gateway.marvel.com/v1/public/comics?format=comic&startYear=2019&limit=50&ts=%s&apikey=%s&hash=%s".formatted(ts,publicKey,md5Hash)))
+                .uri(URI.create(html))
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -47,11 +58,15 @@ public class MarvelTop50Comics implements APIClient {
         return response.body();
     }
 
-    private String getMd5Hash(String s) throws NoSuchAlgorithmException {
-
+    /**
+     * @author Felipe Coelho
+     * @param stringToMD5;
+     * @return Uma String MD5
+     * Metodo que formata a string com ts + privateKey + publickey em uma StringMD5.
+     */
+    private String getMd5Hash(String stringToMD5) throws NoSuchAlgorithmException {
         MessageDigest m = MessageDigest.getInstance("MD5");
-        m.update(s.getBytes(),0,s.length());
-        return ("MD5: "+new BigInteger(1,m.digest()).toString(16));
-
+        m.update(stringToMD5.getBytes(),0,stringToMD5.length());
+        return (new BigInteger(1,m.digest()).toString(16));
     }
 }

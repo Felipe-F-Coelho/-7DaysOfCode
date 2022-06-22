@@ -1,12 +1,12 @@
 package contract;
 
+import java.util.List;
+
 /**
  * @author Felipe Coelho
  * Classe de contrato dos Parse
- * As classes de domain deverão obrigatoriamente implementar os metodos para posteriormente serem consumidos em listagem genéricas.
+ * As classes de parse deverão obrigatoriamente implementar os metodos para posteriormente serem consumidos.
  */
-import java.util.List;
-
-public interface JsonParce {
+public interface JsonParse {
     List<? extends Content> getParse();
 }

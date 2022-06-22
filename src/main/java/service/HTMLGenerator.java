@@ -1,19 +1,35 @@
 package service;
 
-import domain.Movies;
+import contract.Content;
 
 import java.io.PrintWriter;
 import java.util.List;
 
+/**
+ * @author Felipe Coelho
+ * Classe Service
+ * Classe para gerar paginas HTML de acordo com as listas de extends Content.
+ */
 public class HTMLGenerator {
 
     PrintWriter writer;
 
+    /**
+     * @author Felipe Coelho
+     * @param nameOfPage
+     * Metodo construtor para iniciar o writer de acordo com o nome da pagina.
+     */
     public HTMLGenerator(String nameOfPage) throws Exception {
         this.writer = new PrintWriter(nameOfPage);
     }
 
-    public void generate(List<Movies> listMovie) {
+    /**
+     * @author Felipe Coelho
+     * @param contentList
+     * @return void
+     * Metodo que irá gerar o arquivo .HTML para ser consumido na web.
+     */
+    public void generate(List<? extends Content> contentList) {
 
         String head =
                 """
@@ -26,7 +42,7 @@ public class HTMLGenerator {
                         """;
 
         StringBuilder body = new StringBuilder();
-        for (Movies movie: listMovie) {
+        for (Content content: contentList) {
             body.append("""
                     <body>
                         <div class="lister-item mode-detail">
@@ -40,7 +56,7 @@ public class HTMLGenerator {
                             </div>
                         </div>
                     </body>
-                    """.formatted(movie.getUrlImagem(),movie.getRating().toString(),movie.getTitle(),movie.getYear().toString()));
+                    """.formatted(content.urlImage(),content.rating().toString(),content.title(),content.year().toString()));
         }
         String html =
                 """
@@ -53,6 +69,11 @@ public class HTMLGenerator {
         this.writer.print(html);
     }
 
+    /**
+     * @author Felipe Coelho
+     * @return void
+     * Metodo para finalizar a chamada do writer.
+     */
     public void close() {
         this.writer.close();
     }

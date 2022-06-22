@@ -4,15 +4,26 @@ import domain.Movie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import contract.JsonParse;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieOrganizer {
+/**
+ * @author Felipe Coelho
+ * Classe Service
+ * Classe para parsear os String de Json enviados na API-IMDB retornando uma lista de Movies.
+ */
+public class ImdbMovieJsonParser implements JsonParse {
 
-    List<Movie> listMovies;
+    private final List<Movie> listMovies;
 
-    public MovieOrganizer(String json) throws JSONException {
+    /**
+     * @author Felipe Coelho
+     * @param json
+     * Metodo construtor iniciar o parseamento do json e instanciar os objetos.
+     */
+    public ImdbMovieJsonParser(String json) throws JSONException {
 
         listMovies = new ArrayList<>();
 
@@ -30,7 +41,11 @@ public class MovieOrganizer {
 
     }
 
-    public List<Movie> get() {
+    /**
+     * @author Felipe Coelho
+     * Metodo get para retornar o parseamento efetuado.
+     */
+    public List<Movie> getParse() {
         return this.listMovies;
     }
 
