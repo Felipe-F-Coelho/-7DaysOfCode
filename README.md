@@ -5,10 +5,10 @@ Em 7 dias foi desenvolvido usando apenas código Java, consumir uma API para pes
 ## Informações sobre os dias de desenvolvimento do projeto
 
 ### Dia 01
-Neste desafio, fazer o seu código Java rodar e consumir a API do IMDB! Seu objetivo será imprimir os resultados de uma busca na linha de comando.
-Você vai usar essa API para pesquisar os top 250 filmes e imprimir o JSON correspondente no console da sua IDE.
 
-Para isso, você pode acessar o webservice ou API da plataforma em:
+Neste primeiro dia do desafio, desenvovi o consumer da API do IMDB, o meu objetivo era imprimir os resultados de uma busca na linha de comando Utilizando a API para pesquisar os top 250 filmes e imprimir o JSON correspondente no console da IDE.
+
+Para isso, foi precisso acessar o webservice ou API da plataforma e efetuar a solicitação get no endpoint:
 
 [Acessar API-IMDB](https://imdb-api.com/api)
 
@@ -19,10 +19,35 @@ Para isso, você pode acessar o webservice ou API da plataforma em:
 |   3  | - Executar a requisição e pegar a resposta (o JSON)                                                                                                                               |
 |   4  | - Imprimir o corpo da resposta no console                                                                                                                                         |
 
-
+- Observação: É necessário se cadastrar e assim podemos gerar a ApiKey.
 ### Dia 02
+
+No segundo dia, tivemos a tarefa de parsear essa resposta gerada no dia anterior. Em outras palavras, extrair as informações do JSON gerado.
+
+A tarefa foi extrair o título do filme e a URL da imagem a partir da resposta JSON. 
+
+Com o resultado do parseamento, foi necessário criar diferentes listas, cada uma com um atributo do filme. Uma lista com os títulos, outra com a URL da imagem e assim por diante..
+
 ### Dia 03
+
+No terceiro dia, a ideia era iniciar a modelagem para melhorar o código.
+
+Em vez de ter várias listas diferentes, uma para cada atributo do filme, efetuamos uma organização para isso em uma única List<Movie>, onde cada filme encapsula os seus próprios dados, seguindo os seguintes atributos:
+
+- título (title)
+- URL da imagem do pôster (urlImage)
+- nota (rating)
+- ano (year)
+
 ### Dia 04
+
+No quarto dia, trabalhamos com a saída e geraramos uma página HTML a partir da lista de objetos que já tinhamos no código Java.
+
+A ideia erá criar uma página HTML onde possamos ver as informações sobre o filme, incluindo o pôster, algo como:
+
+<img src="https://gm1.ggpht.com/ySBp3Tlv1Q3KXMBZwl-6uIbR_JlAIretJLaGVIp-gc4bTH7codBp411EDJ4iW8rEhmm-rvMDpEVRjyLu7LV607WOMso5oR3VLazdXFgk1fjppwl7oRIQjCGCyOvDs1RvSyH95EDlZ526a6bMWXFkfWLxTh3pM-qmuJtL9Hfv19rSlcty1qNzS3lhI7G8JO9n-d-rci6UoL6sMzEr1cuuvS1Ey38Xl0MP7Ag3KlHibmHDYziyUrABYOsF4JNdhZWTuU3XMpAkdUlW9JAgNUY3owMmq0hx8rzmFVyraMmT2kxDMT8PPpHB93D9fEZaGpGmViKz7ngz84Ps8Dqf9lJYPxfNRaYyuowbiUC7iYyfQtcgzJmw0twLIWjybLKEeL7xl3MAKXRhHi716HpfY7r-S2sg_kJ8gCOkZAZA-mxghF2ZjDYikWhqYFwy6uQj1Ux30R0NxjfXDqNq5jnRvVIEHarSLEimxg3I9S4HXm7mTRsSFggiJnSlFkwsmXfHXokBojPXzHnny03rWbftkuuh6fVrwQzAIl6F_zTQG5uvEak4-FdkfYdMTntPflDQTwgW6Oi_sh9RQT-20wD8sYDJq3Yr7JYGdGpLHulEBgi5h-II2u9AfPbGcaF9uukpmgdN7Hg0s8JEfIVVJuhvruph2QWvODCX_TzR2DU8Q1b4cUjn8CQhuqhAambEtfDKr2GL6YHfcwete-5jQClsE-IrLHHF6GVr5oRjCPorE-QkzG5sZQlHTNBIwniVs-WEgo8tOvsa_9Ep2V37ExOHMxVkmlxaaZFI8ldNu2GdIb4jTbrwQkggTbAO9PlOI9dht1bz4zlPCPm6Ud7et5LKLuox=s0-l75-ft-l75-ft" alt="Movie"/>
+
+
 ### Dia 05
 ### Dia 06
 ### Dia 07
