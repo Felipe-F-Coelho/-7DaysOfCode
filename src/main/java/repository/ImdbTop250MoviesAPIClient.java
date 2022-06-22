@@ -1,6 +1,7 @@
 package repository;
 
 import contract.APIClient;
+import contract.TypeEnum;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -46,5 +47,10 @@ public class ImdbTop250MoviesAPIClient implements APIClient {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         return response.body();
+    }
+
+    @Override
+    public TypeEnum type() {
+        return TypeEnum.MOVIE;
     }
 }

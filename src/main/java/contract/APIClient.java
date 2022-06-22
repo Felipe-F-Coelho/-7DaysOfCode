@@ -7,4 +7,5 @@ package contract;
  */
 public interface APIClient {
     String getBody() throws Exception;
+    TypeEnum type();
 }

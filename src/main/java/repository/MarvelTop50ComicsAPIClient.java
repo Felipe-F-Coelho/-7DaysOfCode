@@ -1,6 +1,7 @@
 package repository;
 
 import contract.APIClient;
+import contract.TypeEnum;
 
 import java.math.BigInteger;
 import java.net.URI;
@@ -56,6 +57,11 @@ public class MarvelTop50ComicsAPIClient implements APIClient {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         return response.body();
+    }
+
+    @Override
+    public TypeEnum type() {
+        return TypeEnum.COMICS;
     }
 
     /**
