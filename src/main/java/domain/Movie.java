@@ -2,7 +2,6 @@ package domain;
 
 import lombok.*;
 
-import java.net.URL;
 import javax.persistence.*;
 
 @Entity
@@ -20,13 +19,4 @@ public class Movies {
     private Integer rating;
     private Integer year;
 
-    @Override
-    public String toString() {
-        return "Movies{" +
-                "title='" + title + '\'' +
-                ", urlImagem='" + urlImagem + '\'' +
-                ", rating=" + rating +
-                ", year=" + year +
-                '}';
-    }
 }

@@ -9,8 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
-public class IMDBTop250MoviesRepository {
-
+public class IMDBTop250MoviesRepositoryAPI implements JsonParser{
     public JSONArray get() throws Exception {
 
         Scanner s = new Scanner(System.in);
