@@ -95,6 +95,6 @@ Quero agradecer a toda a equipe da Alura pelo desenvolvimento dessa problematica
 
 Caso queiram me adicionar no linkedin e tirar alguma duvida sobre o projeto estou a disposição.
 
-[Linkedin - Felipe Coelho](linkedin.com/in/felipe-coelho-a2b996b5)
+[Linkedin - Felipe Coelho](https://www.linkedin.com/in/felipe-coelho-a2b996b5/)
 
 Muito obrigado, Felipe Coelho.
