@@ -45,7 +45,7 @@ No quarto dia, trabalhamos com a saída e geraramos uma página HTML a partir da
 
 A ideia erá criar uma página HTML onde possamos ver as informações sobre o filme, incluindo o pôster, algo como:
 
-<img src="\imagens\Movie.jpg" alt="Movie"/>
+![Movie](https://raw.githubusercontent.com/Felipe-F-Coelho/-7DaysOfCode/main/imagens/Movie.JPG)
 
 
 ### Dia 05
