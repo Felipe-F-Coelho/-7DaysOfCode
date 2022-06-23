@@ -47,9 +47,51 @@ A ideia erá criar uma página HTML onde possamos ver as informações sobre o f
 
 ![Movie](https://raw.githubusercontent.com/Felipe-F-Coelho/-7DaysOfCode/main/imagens/Movie.JPG)
 
+| Task | Descrição                                                                                                                                                                                                                 |
+|:----:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   1  | - Crie uma nova classe HTMLGenerator, que irá receber no construtor um Writer (por exemplo, PrintWriter)                                                                                                                  |
+|   2  | - Adicione um método chamado ‘generate’, que irá receber uma List<Movie>. Nesse método, gere todo o HTML a partir da lista, usando as informações do objeto. pode-se usar métodos privados para delegar responsabilidades.|
 
 ### Dia 05
+
+No quinto dia, o desafio foi encapsular a chamada da API dentro de uma nova classe.
+
+Além disso, uma segunda tarefa: o código que faz o parseamento do JSON ainda estava “solto”, para melhorar o encapsulamento e separaramos todas as responsabilidades em suas devidas classes.
+
 ### Dia 06
+
+O código evoluiu bastante e, olhando para o método main, já identificamos as 3 responsabilidades principais:
+
+- chamar a API
+- parsear o JSON
+- gerar o HTML
+
+No sexto dia, deveriamos deixar o código mais genérico, ou seja, preparado para receber dados de outras APIs. Para isso, entramram em cena as interfaces, que permitiram implementações diferentes.
+
+Resumindo, criamos duas abstrações: uma para o seu modelo chamado de Content e outra para o JsonParser. Basta que futuras implementações sigam essas interfaces e o seu gerador de HTML continuará funcionando! Ou seja, desacoplou o parseamento do JSON da geração de HTML.
+
+| Task | Descrição                                                                                                                                                                                                                 |
+|:----:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   1  | - Voltando para a motivação inicial, a API da Marvel, crie uma interface chamada 'APIClient' com um método getBody().                                                                                                     |
+|   2  | - Tente consumir a API da Marvel criando um cliente da API e JsonParser. Aqui também, você precisará de uma conta para gerar a API Key (chave pública e privada).                                                         |
+|   3  | - Adicione um novo método na interface chamado type(). Esse método irá devolver o tipo do conteúdo em questão, por exemplo: Movie, Series, ComicBook, etc.                                                                |
+
+Obs: Foi enviado para nós um link muito interessante sobre a disciplina de Orientação a Objeto que eu achei fantástico e irei compartilhar logo abaixo:
+
+[Acessar POO: o que é programação orientada a objetos?](https://bit.ly/3tQ4UV9)
+
 ### Dia 07
 
-## Cronograma
+Neste ultimo dia, "Brincamos" com algumas classes de ordenamentos e implementamos alguns metodos destas classes e simular alguns comportamentos.
+
+| Task | Descrição                                                                                                                                                                                                                 |
+|:----:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   1  | - Implemente a interface Comparable<? extends Content> na classe (ou record) Movie (e também na classe Series, se você a tiver criado).Para começar, você pode implementar o método usando a nota (rating) como parâmetro de comparação.                                                                                                                                                                                                                        |
+|   2  | - O método sort() está sobrecarregado, então você pode passar um Comparator como segundo parâmetro para inverter a lista                                                                                                  |
+
+## Agradecimentos
+
+Quero agradecer a toda a equipe da Alura pelo desenvolvimento dessa problematica e fornecer para toda a comunidade de forma gratuita, essas atitudes que visão o bem de toda a comunidade fazem muita diferência.
+Caso queiram me adicionar no linkedin e tirar alguma duvida sobre o projeto estou a disposição.
+linkedin.com/in/felipe-coelho-a2b996b5
+Muito obrigado, Felipe Coelho.
