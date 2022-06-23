@@ -92,6 +92,9 @@ Neste ultimo dia, "Brincamos" com algumas classes de ordenamentos e implementamo
 ## Agradecimentos
 
 Quero agradecer a toda a equipe da Alura pelo desenvolvimento dessa problematica e fornecer para toda a comunidade de forma gratuita, essas atitudes que visão o bem de toda a comunidade fazem muita diferência.
+
 Caso queiram me adicionar no linkedin e tirar alguma duvida sobre o projeto estou a disposição.
-linkedin.com/in/felipe-coelho-a2b996b5
+
+[Linkedin - Felipe Coelho](linkedin.com/in/felipe-coelho-a2b996b5)
+
 Muito obrigado, Felipe Coelho.
